@@ -1,0 +1,117 @@
+.chatroom-page-container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: auto 1fr auto;
+}
+
+/* Sidenav */
+.sidenav {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    background-color: whitesmoke;
+    border-right: 1px solid black;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.topic-card {
+    background-color: darkturquoise;
+    padding: 0.5em 1em;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: left;
+    width: 90%;
+    margin: 0.5em 1em;
+}
+
+.topic-card.selected {
+    color: black;
+    background-color: lightblue;
+}
+
+.topic-card:hover {
+    background-color: lightblue;
+    cursor: pointer;
+}
+
+.topic-card.selected:hover {
+    cursor: auto;
+}
+
+/* sidenav username */
+.username-container {
+    border-top: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.username-label {
+    font-weight: bold;
+}
+
+/* main content */
+.selected-topic-header {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+    padding: 1em;
+    border-bottom: 1px solid black;
+    text-align: center;
+    background-color: whitesmoke;
+}
+
+/* Chat */
+.chat-container {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column-reverse;
+    overflow-y: auto;
+}
+
+/* form */
+.form-container {
+    grid-column: 2;
+    grid-row: 3;
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    grid-template-rows: auto;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 0.5em;
+    width: 80%;
+    justify-self: center;
+    align-items: center;
+}
+
+.form-field {
+    grid-column: 1;
+    display: flex;
+    justify-content: center;
+}
+
+textarea {
+    width: 90%;
+    resize: none;
+    border: none;
+    outline: none;
+}
+
+form button {
+    margin-left: 1em;
+    grid-column: 2;
+    margin: 1em;
+    height: 80%;
+    border: 1px solid black;
+    border-radius: 10px;
+}

@@ -1,0 +1,32 @@
+<div class="chatroom-page-container">
+    <div class="sidenav">
+        <ul>
+            <li *ngFor="let topic of topics">
+                <button class="topic-card" [class.selected]="selectedTopic === topic"
+                    [disabled]="selectedTopic === topic" (click)="subscribeToTopic(topic)">{{topic}}</button>
+            </li>
+        </ul>
+        <div class="username-container">
+            <label>User</label>
+            <label class="username-label">{{username}}</label>
+        </div>
+    </div>
+
+    <p class="selected-topic-header" *ngIf="selectedTopic">Selected Topic: {{ selectedTopic }}</p>
+    <div class="chat-container">
+        <ul>
+            <li *ngFor="let message of messages">
+                <app-chat-message [message]="message"></app-chat-message>
+            </li>
+        </ul>
+    </div>
+
+    <form class="form-container" [formGroup]="messageForm" (keydown.enter)="submitFormWithEnter()"
+        (submit)="sendMessage()">
+        <div class="form-field">
+            <textarea formControlName="message" type="text" placeholder="Inserisci qualcosa..."></textarea>
+        </div>
+
+        <button type="submit" [disabled]="messageForm.value.message === null">Invia</button>
+    </form>
+</div>
